@@ -1,27 +1,24 @@
-# AngularCrash
+# A Simple Task Tracker App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
+### This project demonstartes a simple Task Tracker.
 
-## Development server
+#### This repo contains Angular code part of the simple Task Tracker project developed using Angular, Node, Express, Mongo and ASP.Net Core Web API
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Working App is available at: https://nag-tasks-tracker.netlify.app/
 
-## Code scaffolding
+##### Mongo Cloud DB hosted at: https://cloud.mongodb.com/v2/624282672a1584029925b671#clusters
+##### APIs hosted at: https://dashboard.heroku.com/apps/nag-task-tracker
+##### Auth0 hosted at: https://manage.auth0.com/dashboard/us/dev-4ts2gaz2/
+##### Email Server hosted at: https://app.sendgrid.com/
+##### App hosted at: https://app.netlify.com/sites/nag-tasks-tracker/overview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Sample ScreenShots
+### Initial Screen
+![image](https://user-images.githubusercontent.com/101856709/161534131-b14e2075-f4d2-4a70-9fea-decb6a13ac49.png)
 
-## Build
+### With Add Task Form
+![image](https://user-images.githubusercontent.com/101856709/161534219-e8197f35-8a78-409b-aac2-df2fd2a14b87.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### With Reminders toggled and one Task removed
+![image](https://user-images.githubusercontent.com/101856709/161534327-4e2205d3-8d1c-4eed-8782-f2089a0b40ff.png)
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
