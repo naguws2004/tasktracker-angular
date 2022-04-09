@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   title: string = 'Task Tracker';
+  showAdd: boolean = false;
+  text: string = 'Add';
+  color: string = 'green';
+  @Output() onAddClick: EventEmitter<boolean> = new EventEmitter()
 
   constructor() { }
 
   ngOnInit(): void { }
 
   toggleAddTask() {
-    console.log('toggle');
+    this.showAdd = !this.showAdd;
+    this.onAddClick.emit(this.showAdd);
+    if (this.showAdd) {
+      this.text = "Close";
+      this.color = "#900C3F";
+    }
+    else {
+      this.text = "Add";
+      this.color = "green";
+    }
   }
 }
