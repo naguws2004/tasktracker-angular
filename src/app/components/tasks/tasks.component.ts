@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service'
 import { Task } from '../../models/Task'
-
+import { UiService } from 'src/app/services/ui.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-tasks',
@@ -11,9 +12,14 @@ import { Task } from '../../models/Task'
 export class TasksComponent implements OnInit {
 
   tasks: Task[] = [];
-  displayAdd: boolean = true;
+  displayAdd: boolean = false;
+  subsciption: Subscription;
   
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService, private uiService:UiService) {
+    this.subsciption = 
+      this.uiService.onToggle().subscribe(
+        (val)=>(this.displayAdd=val));
+  }
 
   ngOnInit(): void {
     this.getTasks();

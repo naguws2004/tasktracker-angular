@@ -10,6 +10,9 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { DatetimeComponent } from './components/datetime/datetime.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
 @NgModule({
   declarations: [
@@ -19,13 +22,16 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     TasksComponent,
     TaskItemComponent,
     AddTaskComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    DatetimeComponent
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    NzDatePickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

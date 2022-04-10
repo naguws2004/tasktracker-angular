@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UiService } from 'src/app/services/ui.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -8,24 +10,17 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent implements OnInit {
   title: string = 'Task Tracker';
   showAdd: boolean = false;
-  text: string = 'Add';
-  color: string = 'green';
-  @Output() onAddClick: EventEmitter<boolean> = new EventEmitter()
+  subsciption: Subscription;
 
-  constructor() { }
+  constructor(private uiService:UiService) { 
+    this.subsciption = 
+      this.uiService.onToggle().subscribe(
+        (val)=>(this.showAdd=val));
+  }
 
   ngOnInit(): void { }
 
   toggleAddTask() {
-    this.showAdd = !this.showAdd;
-    this.onAddClick.emit(this.showAdd);
-    if (this.showAdd) {
-      this.text = "Close";
-      this.color = "#900C3F";
-    }
-    else {
-      this.text = "Add";
-      this.color = "green";
-    }
+    this.uiService.toggleAddTask();
   }
 }

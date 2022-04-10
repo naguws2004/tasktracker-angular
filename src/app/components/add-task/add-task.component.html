@@ -3,6 +3,7 @@
       <label for="TaskName">Task Name</label>
       <input
         type="text"
+        class="form-control-input"
         name="TaskName"
         [(ngModel)]="taskName"
         id="TaskName"
@@ -11,13 +12,10 @@
     </div>
     <div class="form-control">
       <label for="TaskDateTime">Task Date & Time</label>
-      <input
-        type="text"
-        name="TaskDateTime"
-        [(ngModel)]="taskDateTime"
-        id="TaskDateTime"
-        placeholder="Add Task Date & Time"
-      />
+      <app-datetime 
+        class="form-control-date"
+        (onSelectDateTime)="onSelected($event)">
+      </app-datetime>
     </div>
     <div class="form-control form-control-check">
       <label for="Remind">Set Reminder</label>

@@ -1,6 +1,5 @@
 
 <app-add-task *ngIf="displayAdd" (onAddTask)="addTask($event)"></app-add-task>
-<br *ngIf="displayAdd" />
 <app-task-item 
     *ngFor="let task of tasks" 
     [task]="task"

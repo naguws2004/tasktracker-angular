@@ -16,21 +16,21 @@ img {
 }
 
 .welcome {
-  max-width: 400px;
+  max-width: 360px;
   margin: 10px auto;
   min-height: 50px;
   border: 1px solid steelblue;
-  padding: 15px 30px;
+  padding: 10px 20px 10px 20px;
   border-radius: 5px;
 }
 
 .container {
-  max-width: 400px;
+  max-width: 360px;
   margin: 10px auto;
   overflow: auto;
-  min-height: 300px;
+  min-height: 200px;
   border: 1px solid steelblue;
-  padding: 30px;
+  padding: 10px 20px 10px 20px;
   border-radius: 5px;
 }
 
@@ -62,19 +62,27 @@ img {
 }
 
 .form-control {
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .form-control label {
   display: block;
 }
 
-.form-control input {
-  width: 100%;
-  height: 40px;
+.form-control-input {
+  width: 73%;
+  height: 30px;
   margin: 5px;
   padding: 3px 7px;
-  font-size: 17px;
+  font-size: 14px;
+}
+
+.form-control-date {
+  width: 100%;
+  height: 30px;
+  margin: 5px;
+  padding: 2px;
+  font-size: 14px;
 }
 
 .form-control-check {

@@ -19,6 +19,11 @@ export class AddTaskComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSelected(dateTime: Date | Date[] | null) {
+    var date = dateTime ? dateTime.toString() : (new Date()).toString();
+    this.taskDateTime = new Date(date);
+  }
+
   onSubmit() {
     if (!this.taskName) {
       alert("Please add task name.");
