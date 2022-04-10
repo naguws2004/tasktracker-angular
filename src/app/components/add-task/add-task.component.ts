@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../models/Task'
+import { AuthService, User } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-add-task',
@@ -11,12 +12,18 @@ export class AddTaskComponent implements OnInit {
   @Output() onAddTask: EventEmitter<Task> = new EventEmitter();
 
   taskName: string = "";
+  emailId: string = "";
   taskDateTime: Date = new Date();
   reminder: boolean = false;
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit(): void {
+    if (this.auth.isAuthenticated$) {
+      this.auth.user$.subscribe((user)=>{
+        this.emailId = user.email;
+      });
+    }
   }
 
   onSelected(dateTime: Date | Date[] | null) {
@@ -30,10 +37,12 @@ export class AddTaskComponent implements OnInit {
       return;
     }
 
+    alert(this.emailId);
+
     const newTask: Task = {
       TaskId: 0,
       TaskName: this.taskName,
-      EmailId: "dummy@gmail.com",
+      EmailId: this.emailId,
       TaskDateTime: this.taskDateTime.toISOString(),
       Remind: this.reminder
     };
@@ -43,7 +52,5 @@ export class AddTaskComponent implements OnInit {
     this.taskName = "";
     this.taskDateTime = new Date();
     this.reminder = false;
-
   }
-
 }

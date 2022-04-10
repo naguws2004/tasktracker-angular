@@ -13,6 +13,10 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { DatetimeComponent } from './components/datetime/datetime.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { AuthModule } from '@auth0/auth0-angular';
+
+const domain = 'dev-4ts2gaz2.us.auth0.com'
+const clientId = '26itf3iAVNMpXB9m93xBkJaECTmj0eDW'
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    NzDatePickerModule
+    NzDatePickerModule,
+    AuthModule.forRoot({
+      domain: domain,
+      clientId: clientId
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

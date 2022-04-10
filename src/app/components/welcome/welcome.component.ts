@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { AuthService, User } from '@auth0/auth0-angular';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-welcome',
@@ -7,17 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+  user: User;
+  constructor(@Inject(DOCUMENT) public document: Document, public auth: AuthService) { }
 
   ngOnInit(): void {
-  }
-
-  login() {
-    console.log('Login')
-  }
-
-  logout() {
-    console.log('Logout')
+    if (this.auth.isAuthenticated$) {
+      this.auth.user$.subscribe((user)=>{
+        this.user=user;
+      });
+    }
   }
 
 }

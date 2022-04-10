@@ -3,6 +3,7 @@ import { TaskService } from '../../services/task.service'
 import { Task } from '../../models/Task'
 import { UiService } from 'src/app/services/ui.service';
 import { Subscription } from 'rxjs';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-tasks',
@@ -15,18 +16,22 @@ export class TasksComponent implements OnInit {
   displayAdd: boolean = false;
   subsciption: Subscription;
   
-  constructor(private taskService: TaskService, private uiService:UiService) {
+  constructor(public auth: AuthService, private taskService: TaskService, private uiService:UiService) {
     this.subsciption = 
       this.uiService.onToggle().subscribe(
         (val)=>(this.displayAdd=val));
   }
 
   ngOnInit(): void {
-    this.getTasks();
+    if (this.auth.isAuthenticated$) {
+      this.auth.user$.subscribe((user)=>{
+        this.getTasks(user.email);
+      });
+    }
   }
 
-  getTasks() {
-    this.taskService.getTasks().subscribe(
+  getTasks(emailId: string) {
+    this.taskService.getTasks(emailId).subscribe(
       (tasks) => this.tasks = tasks);
   }
 

@@ -1,7 +1,7 @@
 <div class="welcome">
     <app-welcome></app-welcome>
 </div>
-<div class="container">
+<div *ngIf="auth.isAuthenticated$" class="container">
     <app-header></app-header>
     <app-tasks></app-tasks>
 </div>

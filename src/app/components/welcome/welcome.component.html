@@ -1,17 +1,26 @@
 <header>
-    <h3 
-        [ngStyle]="{'color': '#900C3F'}">
-        <img src="../../../favicon.ico" alt="">
-        Hi Guest!
-    </h3>
-    <app-button 
-        color="green" 
-        text="Login"
-        (btnClick)="login()">
-    </app-button>
-    <!-- <app-button 
-        color="#900C3F" 
-        text="Logout"
-        (btnClick)="logout()">
-    </app-button> -->
+    <ng-template #loggedOut>
+        <h3 
+            [ngStyle]="{'color': '#900C3F'}">
+            <img src="../../../favicon.ico" alt="">
+            Hi Guest!
+        </h3>
+        <app-button 
+            color="green" 
+            text="Login"
+            (btnClick)="auth.loginWithRedirect()">
+        </app-button>
+    </ng-template>
+    <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+        <h3 
+            [ngStyle]="{'color': '#900C3F'}">
+            <!-- <img style="font-size: 8px;" src="{{ user.picture }}" alt="{{ user.name }}"> -->
+            Hi {{ user.name }}!
+        </h3>
+        <app-button 
+            color="#900C3F" 
+            text="Logout"
+            (btnClick)="auth.logout({ returnTo: document.location.origin })">
+        </app-button>
+    </ng-container>
 </header>
