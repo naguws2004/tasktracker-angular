@@ -4,7 +4,7 @@
 
 #### This repo contains Angular code part of the simple Task Tracker project developed using Angular, Node, Express, Mongo and ASP.Net Core Web API
 
-### Working App is available at: https://nag-tasks-tracker.netlify.app/
+### Working App is available at: https://naa-task-tracker.web.app/
 
 ##### Mongo Cloud DB hosted at: https://cloud.mongodb.com/v2/624282672a1584029925b671#clusters
 ##### APIs hosted at: https://dashboard.heroku.com/apps/nag-task-tracker
