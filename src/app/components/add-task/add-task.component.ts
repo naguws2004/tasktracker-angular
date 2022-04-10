@@ -37,8 +37,6 @@ export class AddTaskComponent implements OnInit {
       return;
     }
 
-    alert(this.emailId);
-
     const newTask: Task = {
       TaskId: 0,
       TaskName: this.taskName,
@@ -47,7 +45,12 @@ export class AddTaskComponent implements OnInit {
       Remind: this.reminder
     };
 
-    this.onAddTask.emit(newTask);
+    if (this.emailId) {
+      this.onAddTask.emit(newTask);
+    }
+    else{
+      alert("Login first...to add a task.")
+    }
     
     this.taskName = "";
     this.taskDateTime = new Date();
