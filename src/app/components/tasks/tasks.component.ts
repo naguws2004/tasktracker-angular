@@ -36,8 +36,10 @@ export class TasksComponent implements OnInit {
   }
 
   addTask(task: Task) {
-    this.taskService.addTask(task).subscribe(
-      (task) => this.tasks.push(task));
+    if (this.auth.isAuthenticated$) {
+      this.taskService.addTask(task).subscribe(
+        (task) => this.tasks.push(task));
+    }
   }
 
   updateTask(task: Task) {
